@@ -1,0 +1,38 @@
+import math
+import random
+import datetime
+import statistics
+import locale
+
+locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+#entradas
+capital = float(input('capital inicial:'))
+aporte = float(input('aporte mensal:'))
+meses = int(input('prazo (meses):'))
+cdi_anual = float(input('cdi anual (%)'))/100
+perc_cdb = float(input('percentual do cdi (%)'))/100
+perc_lci = float(input('percentual do lci (%)'))/100
+taxa_fii = float(input('rentabilidade mensal FII'))
+meta = float(input('meta fiananceira(R$)'))
+
+#conversão cdi
+cdi_mensal = math.pow((1+cdi_anual), 1/12) -1
+
+#total investido
+total_investido = capital + (aporte + meses)
+
+#cdb
+taxa_cdb = cdi_mensal * perc_cdb
+montante_cdb = (capital * math.pow((1 + taxa_cdb), meses) + (aporte * meses))
+lucro_cdb = montante_cdb - total_investido
+montante_cdb_liquido = total_investido + (lucro_cdb * 0.85)
+                                                     
+#lci
+taxa_lci = cdi_mensal * perc_cdb
+montante_lci = (capital * math.pow((1 + taxa_lci),meses)+(aporte * meses))
+
+#poupança
+taxa_poupança = 0.005
+montante_poupança = (capital * math.pow((1+taxa_poupança), meses)+(aporte * meses))
+
+#fii - simulaçãoes
