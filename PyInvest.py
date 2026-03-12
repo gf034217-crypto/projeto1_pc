@@ -6,8 +6,8 @@ import locale
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 #entradas
-capital = float(input('capital inicial:'))
-aporte = float(input('aporte mensal:'))
+capital = float(input('capital inicial(R$):'))
+aporte = float(input('aporte mensal(R$):'))
 meses = int(input('prazo (meses):'))
 cdi_anual = float(input('cdi anual(%):'))/100
 perc_cdb = float(input('percentual do cdi(%):')) /100
@@ -89,9 +89,10 @@ print('       ')
 print(f'FII (Média): {locale.currency(media_fii, grouping=True)}')
 print(f'{'█' * bloco_fii}')
 print('         ')
-print('--- ESTATISTICAS FII ---')
+print('--- ESTATÍSTICAS FII ---')
 print(f'Mediana: {locale.currency(mediana_fii, grouping=True)}')
 print(f'Desvio padrão: {locale.currency(dp_fii, grouping=True)}')
 print('           ')
 print(f'Meta atingida? {media_fii >= meta}')
+
 print('=' * 40)
